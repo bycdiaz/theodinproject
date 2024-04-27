@@ -28,6 +28,10 @@ Rails.application.routes.draw do
     root to: redirect('/dashboard'), as: :authenticated_root
   end
 
+  scope '/dashboard' do
+    get 'survey', to: 'users#survey', as: :dashboard_survey
+  end
+
   devise_for(
     :users,
     module: 'users',
